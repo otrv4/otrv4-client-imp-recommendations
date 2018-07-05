@@ -1,3 +1,3 @@
-# OTRv4 client implementations' recommendations
+# OTRv4 recommendations for implementations
 
-Recommendations for clients implementing OTRv4
+Recommendations for clients implementing OTRv4 protocol.
