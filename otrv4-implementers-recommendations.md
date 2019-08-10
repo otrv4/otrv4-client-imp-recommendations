@@ -24,6 +24,7 @@ can decide if they follow them or not.
    1. [Defining Phi](#conversation-started-by-an-interactive-dake)
    1. [Test cases](#conversation-started-by-an-interactive-dake)
 1. [Handling of data messages advice](#main-changes-over-version-3)
+   1. [Handling TLV type 1 Disconnected](#conversation-started-by-an-interactive-dake)
    1. [Conversion of decrypted plaintext](#conversation-started-by-an-interactive-dake)
 1. [Protocol state machine advice](#main-changes-over-version-3)
    1. [Handling delayed messages](#conversation-started-by-an-interactive-dake)
