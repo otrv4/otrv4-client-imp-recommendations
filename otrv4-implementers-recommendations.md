@@ -36,3 +36,55 @@ can decide if they follow them or not.
 1. [General OTRv4 advice](#main-changes-over-version-3)
    1. [Working with threads](#conversation-started-by-an-interactive-dake)
    1. [Handling chat history](#conversation-started-by-an-interactive-dake)
+
+# OTRv4 policies advice
+
+OTRv4 clients can set different policies for different correspondents. For
+example, Alice could set up her client so that it speaks only OTR version 4,
+except with Charlie, who she knows has only an old client; so that it will
+opportunistically start an OTR conversation whenever it detects the
+correspondent supports it; or so that it refuses to send non-encrypted messages
+to Bob, ever.
+
+Note that OTRv1 and OTRv2 are not supported anymore.
+
+The policies that can be set (on a global or per-correspondent basis) are any
+combination of the following boolean flags:
+
+```
+ALLOW_V3
+  Allow version 3 of the OTR protocol to be used.
+
+ALLOW_V4
+  Allow version 4 of the OTR protocol to be used.
+
+ALLOW_V34
+  Allow version 3 and 4 of the OTR protocol to be used.
+
+REQUIRE_ENCRYPTION
+  Refuse to send unencrypted messages.
+
+SEND_WHITESPACE_TAG
+  Advertise your support of OTR(v3/v4) using the whitespace tag.
+
+WHITESPACE_START_DAKE
+  Start the OTRv4 DAKE when you receive a whitespace tag.
+  Note that this should only start an interactive conversation.
+
+ERROR_START_DAKE
+  Start the OTR DAKE when you receive an OTRv4 Error Message.
+
+OTRNG_REQUIRE_INTERACTIVE
+  Only allow for OTRv4 interactive conversations. This should only be used
+  for parties trying to send a message to someone who is offline.
+
+OTRNG_IDENTITY_START_DAKE
+  Allow that receiving a directly an identity message can start an interactive
+  DAKE. It will only allow to start online conversations with it.
+
+OTRNG_REQUIRE_AUTHENTICATED
+  Allow to start offline or online OTRv4 conversations only when the party
+  has been authenticated.
+```
+
+This policies can be advertised together or in groups.
